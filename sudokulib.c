@@ -108,11 +108,11 @@ void validate_board(sudoku_board_t* board) {
     }
 }
 
-void load_board_from_string(sudoku_board_t* board, string_t* string) {
-    if (string->length != 81) return;
+void load_board_from_string(sudoku_board_t* board, string_t string) {
+    if (string.length != 81) return;
     for (int row = 0; row < 9; row++) {
         for (int col = 0; col < 9; col++) {
-            board->cells[row][col].number = string->data[row * 9 + col] - 48;
+            board->cells[row][col].number = string.data[row * 9 + col] - 48;
             board->cells[row][col].valid = true;
             if (board->cells[row][col].number != 0) {
                 board->cells[row][col].editable = false;

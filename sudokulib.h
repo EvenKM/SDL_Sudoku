@@ -34,7 +34,7 @@ typedef struct SudokuBoard {
 
 void validate_board(sudoku_board_t* board);
 
-void load_board_from_string(sudoku_board_t* board, string_t* string);
+void load_board_from_string(sudoku_board_t* board, string_t string);
 
 void print_board(sudoku_board_t* board, bool print_valid);
 

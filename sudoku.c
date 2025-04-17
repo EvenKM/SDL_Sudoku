@@ -150,7 +150,9 @@ int main(int argc, char const* argv[])
     string_t sudoku_string = { (char*)SDL_LoadFile("sudokuboard.txt", &filesize), filesize };
     printf("%s, size: %d\n", sudoku_string.data, sudoku_string.length);
 
-    load_board_from_string(&board, &sudoku_string);
+    string_array_t sudoku_strings = split_string(sudoku_string, '\r');
+
+    load_board_from_string(&board, sudoku_strings.strings[0]);
     board.cells[0][0].hints[0] = 1;
     board.cells[0][0].hints[1] = 2;
     board.cells[0][0].hints[2] = 3;
@@ -165,11 +167,6 @@ int main(int argc, char const* argv[])
     board.cells[7][3].number = 5;
     validate_board(&board);
     print_board(&board, true);
-
-    string_array_t test_text = split_string(sudoku_string, '2');
-    for (int i = 0; i < test_text.length; i++) {
-        print_string(test_text.strings[i]);
-    }
 
     while (!quitting)
     {
