@@ -166,6 +166,11 @@ int main(int argc, char const* argv[])
     validate_board(&board);
     print_board(&board, true);
 
+    string_array_t test_text = split_string(sudoku_string, '2');
+    for (int i = 0; i < test_text.length; i++) {
+        print_string(test_text.strings[i]);
+    }
+
     while (!quitting)
     {
         new_ticks = SDL_GetTicksNS();

@@ -27,6 +27,7 @@ typedef struct Cell {
 
 typedef struct SudokuBoard {
     cell_t cells[9][9];
+    cell_t solution [9][9];
     uint8_t selected_row;
     uint8_t selected_col;
 } sudoku_board_t;
