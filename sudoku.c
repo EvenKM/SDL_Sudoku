@@ -21,6 +21,18 @@ static bool quitting = false;
 static SDL_Color BACKGROUND_COLOR = { 100, 0, 0, SDL_ALPHA_OPAQUE };
 static float CELL_WIDTH = 50.0;
 
+struct game_state {
+    SDL_Window* window;
+    SDL_Renderer* renderer;
+    TTF_TextEngine* text_engine;
+    TTF_Font* number_font;
+    TTF_Font* ui_font;
+    SDL_Event event;
+    input_mode_t input_mode;
+    sudoku_board_t board;
+    bool quitting;
+};
+
 
 int initialize() {
     if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS))
